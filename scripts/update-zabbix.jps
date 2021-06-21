@@ -48,6 +48,7 @@ actions:
         \cp -R /opt/zabbix/temp/. /var/www/webroot/ROOT &>> /var/log/run.log
         rm /opt/zabbix/temp/* -r &>> /var/log/run.log
         sed -i 's#/etc/zabbix/web/maintenance.inc.php#/var/www/webroot/ROOT/conf/maintenance.inc.php#g' /var/www/webroot/ROOT/include/classes/core/ZBase.php
+        sed -i 's#/etc/zabbix/web/zabbix.conf.php#/var/www/webroot/ROOT/conf/zabbix.conf.php#g' /var/www/webroot/ROOT/include/classes/core/CConfigFile.php
       user: root
       sayYes: true
 
