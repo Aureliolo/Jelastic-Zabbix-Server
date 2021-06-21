@@ -45,8 +45,9 @@ actions:
         wget ${baseUrl}/frontend/frontend.zip &>> /var/log/run.log
         unzip frontend.zip &>> /var/log/run.log
         rm frontend.zip &>> /var/log/run.log
-        \cp -R /opt/zabbix/temp/ /var/www/webroot/ROOT &>> /var/log/run.log
+        \cp -R /opt/zabbix/temp/. /var/www/webroot/ROOT &>> /var/log/run.log
         rm /opt/zabbix/temp/* -r &>> /var/log/run.log
+        sed -i 's#/etc/zabbix/web/maintenance.inc.php#/var/www/webroot/ROOT/conf/maintenance.inc.php#g' /var/www/webroot/ROOT/include/classes/core/ZBase.php
       user: root
       sayYes: true
 
