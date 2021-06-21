@@ -83,6 +83,8 @@ actions:
         DST2='$DB['"'"'PASSWORD'"'"']      = '"'"'${globals.DB_PASS}'"'"';'
         sed -i '9d' /var/www/webroot/ROOT/conf/zabbix.conf.php.example
         sed -i "9i $DST2" /var/www/webroot/ROOT/conf/zabbix.conf.php.example
+        sed -i 's#/etc/zabbix/web/maintenance.inc.php#/var/www/webroot/ROOT/conf/maintenance.inc.php#g' /var/www/webroot/ROOT/include/classes/core/ZBase.php
+        sed -i 's#/etc/zabbix/web/zabbix.conf.php#/var/www/webroot/ROOT/conf/zabbix.conf.php#g' /var/www/webroot/ROOT/include/classes/core/CConfigFile.php
         mv /var/www/webroot/ROOT/conf/zabbix.conf.php.example /var/www/webroot/ROOT/conf/zabbix.conf.php
 
   prepare-for-upgrade-addon:
